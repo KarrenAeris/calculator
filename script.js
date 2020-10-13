@@ -50,6 +50,9 @@ function handleOperator(nextOperator) {
     calculator.firstOperand = inputValue;
   } else if (operator) {
     const result = calculate(firstOperand, inputValue, operator);
+
+    // вычисляем результат до тысячных, если меньше - урезаем
+    calculator.displayValue = parseFloat(result.toFixed(4));
     calculator.firstOperand = result;
   }
   
